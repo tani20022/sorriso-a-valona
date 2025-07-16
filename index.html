@@ -105,6 +105,14 @@
       margin: 20px auto;
       display: block;
     }
+    .review {
+      display: none;
+      animation: fadein 1s ease-in-out;
+    }
+    @keyframes fadein {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
   </style>
 </head>
 <body>
@@ -147,21 +155,18 @@
 
   <section id="testimonianze">
     <h2>Cosa dicono i nostri pazienti</h2>
-    <blockquote>
-      "Avevo paura di andare all'estero, ma l'organizzazione è stata impeccabile. Il dottore è stato bravissimo e i costi molto contenuti. Lo rifarei!" - Marco R.
-    </blockquote>
-    <blockquote>
-      "Mi sono trovato benissimo. Ambiente pulito, personale professionale e trattamento indolore. Lo consiglierò a tutti i miei amici." - Laura M.
-    </blockquote>
-    <blockquote>
-      "Avevo bisogno di un impianto dentale e in Italia era troppo costoso. Qui ho risolto tutto in pochi giorni e a un prezzo ottimo!" - Giuseppe T.
-    </blockquote>
-    <blockquote>
-      "Il mio sorriso è completamente cambiato! Sono felice del risultato e anche del viaggio a Valona, una città bellissima." - Elena V.
-    </blockquote>
-    <blockquote>
-      "Avevo dubbi sul trapianto di capelli, ma il team è stato molto rassicurante. Il risultato è stato oltre le aspettative." - Riccardo L.
-    </blockquote>
+    <div id="review-container">
+      <blockquote class="review">"Avevo paura di andare all'estero, ma l'organizzazione è stata impeccabile. Il dottore è stato bravissimo e i costi molto contenuti. Lo rifarei!" - Marco R.</blockquote>
+      <blockquote class="review">"Mi sono trovato benissimo. Ambiente pulito, personale professionale e trattamento indolore. Lo consiglierò a tutti i miei amici." - Laura M.</blockquote>
+      <blockquote class="review">"Avevo bisogno di un impianto dentale e in Italia era troppo costoso. Qui ho risolto tutto in pochi giorni e a un prezzo ottimo!" - Giuseppe T.</blockquote>
+      <blockquote class="review">"Il mio sorriso è completamente cambiato! Sono felice del risultato e anche del viaggio a Valona, una città bellissima." - Elena V.</blockquote>
+      <blockquote class="review">"Avevo dubbi sul trapianto di capelli, ma il team è stato molto rassicurante. Il risultato è stato oltre le aspettative." - Riccardo L.</blockquote>
+      <blockquote class="review">"Personale fantastico, trattamento veloce e indolore. Non pensavo fosse possibile risparmiare così tanto con questa qualità!" - Sofia P.</blockquote>
+      <blockquote class="review">"Organizzazione perfetta. Mi hanno seguito in tutto, dai voli all'alloggio. La clinica è moderna e pulitissima." - Daniele G.</blockquote>
+      <blockquote class="review">"Ho fatto un trapianto FUE e sono passati 6 mesi. Il risultato è molto naturale e sono felicissimo!" - Andrea C.</blockquote>
+      <blockquote class="review">"Ho combinato la cura dei denti con una vacanza al mare. Esperienza bellissima, tutto perfetto!" - Chiara F.</blockquote>
+      <blockquote class="review">"Veloci, professionali e sempre disponibili. Li consiglierò a tutti!" - Fabio S.</blockquote>
+    </div>
   </section>
 
   <section id="contatti">
@@ -186,5 +191,16 @@
     <p>&copy; 2025 - Trattamenti odontoiatrici e estetici in Albania - In collaborazione con Haxhiu Medical Center</p>
     <p>Contatto diretto: <a href="tel:+393205312914">+39 320 5312914</a></p>
   </footer>
+
+  <script>
+    const reviews = document.querySelectorAll('.review');
+    let current = 0;
+    function showReview() {
+      reviews.forEach((r, i) => r.style.display = i === current ? 'block' : 'none');
+      current = (current + 1) % reviews.length;
+    }
+    showReview();
+    setInterval(showReview, 5000);
+  </script>
 </body>
 </html>
